@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import './App.css';
 import RecipeList from './components/RecipeList';
+import Footer from './components/Footer';
 
 const apiUrl = '/api/recipes'
 
@@ -44,7 +45,7 @@ class App extends Component {
         </section>
 
         <footer className="footer">
-         <p> It's a footer </p>
+         <Footer />
         </footer>
 
       </div>
