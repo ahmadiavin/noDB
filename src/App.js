@@ -1,26 +1,58 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
+import axios from 'axios';
 import './App.css';
+import RecipeList from './components/RecipeList';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const apiUrl = '/api/recipes'
+
+class App extends Component {
+  constructor(){
+    super();
+    this.state = {
+      recipes: [],
+      currIndex: 0,
+    }
+  }
+
+  componentDidMount(){
+    this.getRecipes()
+  }
+
+  getRecipes = () => {
+    axios.get(apiUrl).then(res => {
+      this.setState({
+        recipes: res.data
+      })
+      console.log(apiUrl);
+    })
+  }
+
+
+  render() {
+    const {recipes} = this.state;
+
+    return (
+      <div className="body">
+        <header className="header">
+        <h1 className="recipe-list">Recipe List</h1>
+        </header>
+        <section>
+
+          {recipes.map((recipe, index) => (
+          <RecipeList key={index} recipe={recipe} updateRecipes={this.updateRecipes} />
+        ))}
+        </section>
+
+        <footer className="footer">
+         <p> It's a footer </p>
+        </footer>
+
+      </div>
+      
+    )
+  }
+
+
 }
 
 export default App;
