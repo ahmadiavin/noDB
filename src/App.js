@@ -1,59 +1,61 @@
-import React, {Component} from 'react';
-import axios from 'axios';
-import './App.css';
-import RecipeList from './components/RecipeList';
-import Footer from './components/Footer';
+import React, { Component } from "react";
+import axios from "axios";
+import Popup from 'reactjs-popup';
+import "./App.css";
+import RecipeList from "./components/RecipeList";
+import Footer from "./components/Footer";
+import GetRecipes from "./components/GetRecipes";
 
-const apiUrl = '/api/recipes'
+
+const apiUrl = "/api/recipes";
 
 class App extends Component {
-  constructor(){
+  constructor() {
     super();
     this.state = {
-      recipes: [],
-      currIndex: 0,
-    }
+      view: "recipes"
+    };
+    this.changeView = this.changeView.bind(this);
   }
 
-  componentDidMount(){
-    this.getRecipes()
+  changeView(newView) {
+    this.setState({ view: newView });
   }
-
-  getRecipes = () => {
-    axios.get(apiUrl).then(res => {
-      this.setState({
-        recipes: res.data
-      })
-      console.log(apiUrl);
-    })
-  }
-
 
   render() {
-    const {recipes} = this.state;
-
     return (
       <div className="body">
         <header className="header">
-        <h1 className="recipe-list">Recipe List</h1>
-        </header>
-        <section>
+          <h1 className="recipe-list">Recipe List</h1>
 
-          {recipes.map((recipe, index) => (
-          <RecipeList key={index} recipe={recipe} updateRecipes={this.updateRecipes} />
-        ))}
-        </section>
+          <nav>
+            <Popup trigger={<button
+              className={this.state.view === "recipes" ? "current" : ""}
+              onClick={() => this.setState({ view: "recipes" })}
+            >
+              Recipes
+            </button>} position="top left"> <div>check out these recipes!</div></Popup> 
+            <button
+              className={this.state.view === "stuff" ? "current" : ""}
+              onClick={() => this.setState({ view: "stuff" })}
+            >
+              Add Recipe
+            </button>
+            <button onClick={() => this.setState({ view: "more stuff" })}>
+            Default 
+            </button>
+          </nav>
+        </header>
+        <GetRecipes />
+
+      
 
         <footer className="footer">
-         <Footer />
+          <Footer />
         </footer>
-
       </div>
-      
-    )
+    );
   }
-
-
 }
 
 export default App;
