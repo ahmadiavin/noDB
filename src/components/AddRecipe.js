@@ -47,17 +47,15 @@ class Add extends Component {
             });
         }}
       >
-          <div class="recipe-input">
+          <div className="recipe-input">
         <input name="title" onChange={this.handleChange} placeholder="Title" />
         <input name="img" onChange={this.handleChange} placeholder="Image" />
         <input name="ingredients" onChange={this.handleChange} placeholder="Ingredients" />
         <input name="instructions" onChange={this.handleChange} placeholder="Instructions" />
+        <button className="editButton" >Submit</button>
+       
         </div>
-        <div class="ui buttons">
-        <button class="ui button" type="reset" onChange={this.baseState}>Cancel</button>
-        <div class="or"></div>
-        <button class="ui positive button" type="submit">Submit</button>
-        </div>
+        
         
       </form>
      

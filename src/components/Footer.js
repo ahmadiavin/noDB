@@ -1,51 +1,47 @@
-import React, {Component} from 'react';
+import React, { Component } from "react";
+import { GoMarkGithub } from "react-icons/go/";
+import { FaLinkedin } from "react-icons/fa";
+import { FaCodepen } from "react-icons/fa";
 
+export default function Footer() {
+  
+    return (
+      <footer className="page__footer">
+        <div className="footerdiv">
+          <a
+            class="item"
+            className="connect-list__link"
+            href="https://github.com/ahmadiavin"
+            target="newwindow"
+          >
+            <GoMarkGithub />
+          </a>
+        </div>
 
-export default class Footer extends Component {
+        <div className="footerdiv">
+         
+          <a
+            class="item"
+            className="connect-list__link"
+            href="http://codepen.io/ahmadiavin/"
+            target="newwindow"
+          >
+            <FaCodepen />
+          </a>
+        </div>
 
-	render() {
-		return (
-			<footer className="page__footer">
-				<div class="ui bulleted list" className="footercontainer">
-					<div className="column four">
-					<h2>Connect</h2>
-					<ul className="connect-list">
-						<li className="connect-list__item">
-							<a 
-							    class="item"
-								className="connect-list__link"							
-								href="https://www.linkedin.com/school/devmountain/"
-								target="newwindow"
-							>
-								LinkedIn
-							</a>
-							
-						</li>
-						<li className="connect-list__item">
-							<a 
-							class="item"
-								className="connect-list__link"							
-								href="https://github.com/ahmadiavin"
-								target="newwindow"
-							>
-								Github
-							</a>
-						</li>
-						<li className="connect-list__item">
-							<a 
-							class="item"
-								className="connect-list__link"
-								href="http://codepen.io/ahmadiavin/"
-								target="newwindow"
-							>
-								Codepen
-							</a>
-						</li>												
-					</ul>
-					</div>
-				</div>
-			</footer>
-		);
-	}
-
+        <div className="footerdiv">
+         
+          <a
+            class="item"
+            className="connect-list__link"
+            href="https://www.linkedin.com/school/devmountain/"
+            target="newwindow"
+          >
+            <FaLinkedin />
+          </a>
+        </div>
+      </footer>
+    );
+  
 }

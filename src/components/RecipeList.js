@@ -1,33 +1,34 @@
 import React, { Component } from "react";
 import axios from "axios";
-
+import {FaLongArrowAltLeft} from 'react-icons/fa';
+import {FaLongArrowAltRight} from 'react-icons/fa';
 const apiUrl = "/api/recipes";
 
 class RecipeList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isExpanded: false
+      isExpanded: false,
+      editable: false
+
     };
   }
+
   render() {
     return (
       <div className="container">
         <div className="row">
-          <div
-            key={this.props.recipe.title}
-            className="recipe-title"
-            
-          >
-            <div className="recipes_box">
+          <div key={this.props.recipe.title} className="recipe__title">
+            <div className="recipes__box">
               <img
-                className="recipe_box-img"
+                className="recipe__box-img"
                 src={this.props.recipe.img}
                 alt={this.props.recipe.title}
               />
-              <div className="recipe_text">
-                <h5 className="recipes_title">{this.props.recipe.title}</h5>
+              <div className="recipe__text">
+                <h5 className="recipes__title">{this.props.recipe.title}</h5>
                 <button
+                  className="recipe_buttons"
                   onClick={() =>
                     this.setState({ isExpanded: !this.state.isExpanded })
                   }
@@ -36,19 +37,20 @@ class RecipeList extends Component {
                 </button>
                 {this.state.isExpanded === true ? (
                   <div className="hidden">
-                    <p className="recipes_subtitle">
+                    <p className="recipes__subtitle">
                       {" "}
-                      Ingredients: <span>{this.props.recipe.ingredients}></span>
+                      Ingredients: <span>{this.props.recipe.ingredients}</span>
                     </p>
-                    <p className="recipes_subtitle">
+                    <p className="recipes__subtitle">
                       {" "}
                       Instructions:{" "}
                       <span>{this.props.recipe.instructions}</span>
                     </p>
                     <button
+                      className="deleteButton"
                       onClick={() => {
                         axios
-                          .delete(apiUrl +'/:' + this.props.recipe.id)
+                          .delete(apiUrl + "/:" + this.props.recipe.id)
                           .then(response => {
                             this.props.updateRecipe(response.data);
                           });
@@ -56,8 +58,45 @@ class RecipeList extends Component {
                     >
                       Delete
                     </button>
-
-                    <button>Edit</button>
+                    <FaLongArrowAltLeft/> || <FaLongArrowAltRight/>
+                    <button
+                      className="editButton"
+                      onClick={() =>
+                        this.setState({ editable: !this.state.editable })
+                      }
+                    >
+                      Edit
+                    </button>
+                    {this.state.editable === true ? (
+                      <div className="hidden-input">
+                        <input
+                        className="edit-input"
+                          name="title"
+                          onChange={this.handleChange}
+                          placeholder="Title"
+                        />
+                        <input
+                        className="edit-input"
+                          name="img"
+                          onChange={this.handleChange}
+                          placeholder="Image"
+                        />
+                        <input
+                        className="long-input"
+                          name="ingredients"
+                          onChange={this.handleChange}
+                          placeholder="Ingredients"
+                        />
+                        <input
+                        className="long-input"
+                          name="instructions"
+                          onChange={this.handleChange}
+                          placeholder="Instructions"
+                        />
+                        <br></br>
+                        <button className="editButton">Submit Edit</button>
+                      </div>
+                    ) : null}
                   </div>
                 ) : null}
               </div>

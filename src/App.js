@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import axios from "axios";
-import Popup from 'reactjs-popup';
+import Header from './components/Header'
 import "./App.css";
 import Footer from "./components/Footer";
 import GetRecipes from "./components/GetRecipes";
 import AddRecipe from "./components/AddRecipe"
-
+import {FaHome} from 'react-icons/fa';
+import {FaPlusSquare} from 'react-icons/fa';
+import {FaUtensilSpoon} from 'react-icons/fa';
 
 
 
@@ -21,30 +23,30 @@ class App extends Component {
   changeView(newView) {
     this.setState({ view: newView });
   }
-
+ 
   render() {
     return (
-      <div className="body">
-        <header  class="ui red header" className="header">
-        <h2 class="ui header">Recipe List</h2>
-
-          <nav>
-            <Popup trigger={<button
-              className={this.state.view === "recipes"}
+      <div className="mainbody" >
+        <Header />
+          <nav className="navbuttons">
+            <button
+         
+              className={this.state.view === "recipes" ? "current" : ""}
               onClick={() => this.setState({ view: "recipes" })}
             >
-              Home
-            </button>} position="top left"> <div>go back to main page?</div></Popup> 
+              <FaHome/>Recipes
+            </button>
             
             <button
+            type="button" class="btn btn-outline-primary"
               className={this.state.view === "addRecipes" ? "current" : ""}
               onClick={() => this.setState({ view: "addRecipes" })}
             >
-            Add Recipe
+            <FaPlusSquare/> <FaUtensilSpoon/> Add Recipe
             </button>
             
           </nav>
-        </header>
+      
         {this.state.view === "recipes" ? (
           <GetRecipes />
         ) : (
