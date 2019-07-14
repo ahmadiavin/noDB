@@ -2,12 +2,12 @@ import React, { Component } from "react";
 import axios from "axios";
 import Popup from 'reactjs-popup';
 import "./App.css";
-import RecipeList from "./components/RecipeList";
 import Footer from "./components/Footer";
 import GetRecipes from "./components/GetRecipes";
+import AddRecipe from "./components/AddRecipe"
 
 
-const apiUrl = "/api/recipes";
+
 
 class App extends Component {
   constructor() {
@@ -25,28 +25,32 @@ class App extends Component {
   render() {
     return (
       <div className="body">
-        <header className="header">
-          <h1 className="recipe-list">Recipe List</h1>
+        <header  class="ui red header" className="header">
+        <h2 class="ui header">Recipe List</h2>
 
           <nav>
             <Popup trigger={<button
-              className={this.state.view === "recipes" ? "current" : ""}
+              className={this.state.view === "recipes"}
               onClick={() => this.setState({ view: "recipes" })}
             >
-              Recipes
-            </button>} position="top left"> <div>check out these recipes!</div></Popup> 
+              Home
+            </button>} position="top left"> <div>go back to main page?</div></Popup> 
+            
             <button
-              className={this.state.view === "stuff" ? "current" : ""}
-              onClick={() => this.setState({ view: "stuff" })}
+              className={this.state.view === "addRecipes" ? "current" : ""}
+              onClick={() => this.setState({ view: "addRecipes" })}
             >
-              Add Recipe
+            Add Recipe
             </button>
-            <button onClick={() => this.setState({ view: "more stuff" })}>
-            Default 
-            </button>
+            
           </nav>
         </header>
-        <GetRecipes />
+        {this.state.view === "recipes" ? (
+          <GetRecipes />
+        ) : (
+          <AddRecipe changeView={this.changeView} />
+        )}
+       
 
       
 

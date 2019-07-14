@@ -31,22 +31,44 @@ let recipeArray =  [
 
 let id = 4;
 
+
+
+const addRecipe = (req, res) => {
+    recipeArray.push(req.body);
+    res.json(recipeArray);
+  };
+
+  const deleteRecipe = (req, res) => {
+      const index = recipeArray.findIndex(recipe => recipe.id === req.params.name);
+      recipeArray.splice(index, 1);
+      res.json(recipeArray);
+  }
+
 module.exports = {
     getRecipes: (req, res) => {
         res.status(200).send(recipeArray)
     },
-    // addRecipes: (req, res) => {
-    //     const {title, ingredients, instructions, img } = req.body
-    //     recipeArray.push({
-    //         id,
-    //         title, 
-    //         ingredients,
-    //         instructions,
-    //         img
-    //     })
-    //     id++
+    editRecipe: (req, res) => {
+        const {title, ingredients, instructions, img} = req.body
+        const {id} = req.params
+        const recipeIndex = recipeArray.findIndex(recipe => recipe.id == id)
+        if (recipeIndex === -1) {
+            res.status(404).send('Recipe not found')
+        }
+        let foundRecipe = recipeArray[recipeIndex]
+        foundRecipe = {
+            id: foundRecipe.id,
+            title: title || foundRecipe.title,
+            ingredients: ingredients || foundRecipe.ingredients,
+            instructions: instructions || foundRecipe.instructions,
+            img: img || foundRecipe.img
 
-    //     res.status(200).send(recipeArray)
-    // },
+        }
+        recipeArray.splice(recipeIndex, 1, foundRecipe)
+        res.status(200).send(recipeArray)
+    },
+    addRecipe,
+    deleteRecipe
+   
 
 }

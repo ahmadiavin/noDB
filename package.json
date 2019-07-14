@@ -7,8 +7,10 @@
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "material-design-iconic-font": "^2.2.0",
+    "octicons": "^8.5.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-octicon": "^3.0.1",
     "react-scripts": "3.0.1",
     "reactjs-popup": "^1.4.1"
   },
