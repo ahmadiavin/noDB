@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import axios from "axios";
 import { FaLongArrowAltLeft } from "react-icons/fa";
 import { FaLongArrowAltRight } from "react-icons/fa";
-// import Edit from "./Edit";
+import { FaListUl } from "react-icons/fa";
+import { FaTrashAlt } from "react-icons/fa";
+import { FaRegEdit } from "react-icons/fa";
 import UpdateRecipe from "./UpdateRecipe";
 const apiUrl = "/api/recipes";
 
@@ -42,7 +44,7 @@ class RecipeList extends Component {
                     this.setState({ isExpanded: !this.state.isExpanded })
                   }
                 >
-                  Show Recipe
+                  <FaListUl /> Show Recipe
                 </button>
                 {this.state.isExpanded === true ? (
                   <div className="hidden">
@@ -65,16 +67,16 @@ class RecipeList extends Component {
                           });
                       }}
                     >
-                      Delete
+                      <FaTrashAlt /> Delete
                     </button>
-                    <FaLongArrowAltLeft /> || <FaLongArrowAltRight />
+                    <FaLongArrowAltLeft /> <FaLongArrowAltRight />
                     <button
                       className="editButton"
                       onClick={() =>
                         this.setState({ editable: !this.state.editable })
                       }
                     >
-                      Edit
+                      <FaRegEdit /> Edit
                     </button>
                     {this.state.editable === true ? (
                       <div className="hidden-input">

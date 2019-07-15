@@ -1,22 +1,24 @@
 body {
-  background:#f3f3f3;
-  
-    margin:0;
-    padding:0;
-  
+  background: #f3f3f3;
+
+  margin: 0;
+  padding: 0;
 }
-header {
+.header-box {
   display: flex;
   align-content: space-between;
   justify-content: center;
   align-items: center;
-  color:  #e74c3c;
-  background: #2c3e50;
-  width: 100vw;
-  
+  padding: 0.3rem 0.9rem;
+
+  border-radius: 1px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 500;
+
+  text-decoration: underline;
 }
 img {
-   
   width: 20%;
   height: 20%;
   border-radius: 8px;
@@ -35,75 +37,49 @@ button:focus {
   text-align: center;
 }
 
-
 .navbuttons {
   font-size: 5rem;
- background: transparent;
+  background: transparent;
 
+  border: 0;
+
+  border-bottom: solid 2px #2c3e50;
   display: flex;
-  justify-content:space-evenly;
+  justify-content: space-evenly;
   align-items: center;
-  
-  background: #2c3e50;
-  
-  
 }
 .navbuttons button {
-	-moz-box-shadow:inset 0px 1px 0px 0px #fff6af;
-	-webkit-box-shadow:inset 0px 1px 0px 0px #fff6af;
-	box-shadow:inset 0px 1px 0px 0px #fff6af;
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffec64), color-stop(1, #ffab23));
-	background:-moz-linear-gradient(top, #ffec64 5%, #ffab23 100%);
-	background:-webkit-linear-gradient(top, #ffec64 5%, #ffab23 100%);
-	background:-o-linear-gradient(top, #ffec64 5%, #ffab23 100%);
-	background:-ms-linear-gradient(top, #ffec64 5%, #ffab23 100%);
-	background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffec64', endColorstr='#ffab23',GradientType=0);
-	background-color:#ffec64;
-	-moz-border-radius:6px;
-	-webkit-border-radius:6px;
-	border-radius:6px;
-	border:1px solid #ffaa22;
-	display:inline-block;
-	cursor:pointer;
-	color:#333333;
-	font-family:Arial;
-	font-size:15px;
-	font-weight:bold;
-	padding:6px 24px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #ffee66;
+  -moz-box-shadow: inset 0px 39px 0px -24px #e67a73;
+  -webkit-box-shadow: inset 0px 39px 0px -24px #e67a73;
+  box-shadow: inset 0px 39px 0px -24px #e67a73;
+  background-color: #e4685d;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  /* border:1px solid #ffffff; */
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 13px;
+  padding: 6px 15px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #b23e35;
 }
 .navbuttons button:hover {
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffab23), color-stop(1, #ffec64));
-	background:-moz-linear-gradient(top, #ffab23 5%, #ffec64 100%);
-	background:-webkit-linear-gradient(top, #ffab23 5%, #ffec64 100%);
-	background:-o-linear-gradient(top, #ffab23 5%, #ffec64 100%);
-	background:-ms-linear-gradient(top, #ffab23 5%, #ffec64 100%);
-	background:linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffab23', endColorstr='#ffec64',GradientType=0);
-	background-color:#ffab23;
+  background-color: #eb675e;
 }
 .navbuttons button:active {
-	position:relative;
-	top:1px;
+  position: relative;
+  top: 1px;
 }
 
-
-
 .recipes__box {
- 
   padding-bottom: 2rem;
   /* border-radius: 5px;
   box-shadow: -1px 2px 34px -13px rgba(0,0,0,0.75); */
-  
-  overflow: hidden;
-  
-}
 
-.recipe__text {
-  margin-left: 15px;
-  /* border: 2px solid red; */
+  overflow: hidden;
 }
 
 .recipe__title {
@@ -111,7 +87,6 @@ button:focus {
   text-transform: uppercase;
   font-size: 1.5rem;
   padding: 1.8rem 0 0.2rem 0;
-  
 }
 
 .recipes__subtitle {
@@ -119,7 +94,6 @@ button:focus {
   font-weight: 600;
   font-size: 0.8rem;
   letter-spacing: 2px;
-  
 }
 
 .recipes__subtitle span {
@@ -151,21 +125,21 @@ button:focus {
   margin-left: 0.7rem;
 }
 
-input[type="text"] { 
+input[type="text"] {
   outline: none;
 }
 
-input:-webkit-autofill {
+/* input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 30px #f3f3f3 inset;
   -webkit-text-fill-color: #2c3e50 !important;
-}
+} */
 
 /******** RECIPE.js ********/
 
 .hidden {
   margin: 0 auto;
   width: 60%;
-  border: 1px solid  #e74c3c;
+  border: 1px solid #e74c3c;
   background: #fafbfc;
 }
 
@@ -179,7 +153,8 @@ input:-webkit-autofill {
   margin: 1rem 0;
 }
 
-.active-recipe__publisher, .active-recipe__website {
+.active-recipe__publisher,
+.active-recipe__website {
   text-transform: uppercase;
   font-size: 1.2rem;
   margin-bottom: 1rem;
@@ -219,10 +194,6 @@ footer {
   font-size: 4rem;
   background: #2c3e50;
   width: 100vw;
-  
-  
- 
- 
 }
 .footerdiv {
   display: flex;
@@ -235,111 +206,138 @@ footer {
   font-size: 5rem;
   text-transform: uppercase;
   font-weight: 500;
-  
 }
 
 .recipe_buttons {
-	-moz-box-shadow:inset 0px 39px 0px -24px #e67a73;
-	-webkit-box-shadow:inset 0px 39px 0px -24px #e67a73;
-	box-shadow:inset 0px 39px 0px -24px #e67a73;
-	background-color:#e4685d;
-	-moz-border-radius:4px;
-	-webkit-border-radius:4px;
-	border-radius:4px;
-	border:1px solid #ffffff;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:15px;
-	padding:6px 15px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #b23e35;
+  -moz-box-shadow: inset 0px 39px 0px -24px #e67a73;
+  -webkit-box-shadow: inset 0px 39px 0px -24px #e67a73;
+  box-shadow: inset 0px 39px 0px -24px #e67a73;
+  background-color: #e4685d;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  border: 1px solid #ffffff;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 13px;
+  padding: 6px 15px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #b23e35;
 }
 .recipe_buttons:hover {
-	background-color:#eb675e;
+  background-color: #eb675e;
 }
 .recipe_buttons:active {
-	position:relative;
-	top:1px;
+  position: relative;
+  top: 1px;
 }
 
 .deleteButton {
-	-moz-box-shadow:inset 0px 1px 0px 0px #cf866c;
-	-webkit-box-shadow:inset 0px 1px 0px 0px #cf866c;
-	box-shadow:inset 0px 1px 0px 0px #cf866c;
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #d0451b), color-stop(1, #bc3315));
-	background:-moz-linear-gradient(top, #d0451b 5%, #bc3315 100%);
-	background:-webkit-linear-gradient(top, #d0451b 5%, #bc3315 100%);
-	background:-o-linear-gradient(top, #d0451b 5%, #bc3315 100%);
-	background:-ms-linear-gradient(top, #d0451b 5%, #bc3315 100%);
-	background:linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#d0451b', endColorstr='#bc3315',GradientType=0);
-	background-color:#d0451b;
-	-moz-border-radius:3px;
-	-webkit-border-radius:3px;
-	border-radius:3px;
-	border:1px solid #942911;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:13px;
-	padding:6px 24px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #854629;
+  -moz-box-shadow: inset 0px 1px 0px 0px #cf866c;
+  -webkit-box-shadow: inset 0px 1px 0px 0px #cf866c;
+  box-shadow: inset 0px 1px 0px 0px #cf866c;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0.05, #d0451b),
+    color-stop(1, #bc3315)
+  );
+  background: -moz-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+  background: -webkit-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+  background: -o-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+  background: -ms-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+  background: linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#d0451b', endColorstr='#bc3315',GradientType=0);
+  background-color: #d0451b;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid #942911;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 13px;
+  padding: 6px 24px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #854629;
+  width: 80px;
+  height: 40px;
 }
 .deleteButton:hover {
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #bc3315), color-stop(1, #d0451b));
-	background:-moz-linear-gradient(top, #bc3315 5%, #d0451b 100%);
-	background:-webkit-linear-gradient(top, #bc3315 5%, #d0451b 100%);
-	background:-o-linear-gradient(top, #bc3315 5%, #d0451b 100%);
-	background:-ms-linear-gradient(top, #bc3315 5%, #d0451b 100%);
-	background:linear-gradient(to bottom, #bc3315 5%, #d0451b 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#bc3315', endColorstr='#d0451b',GradientType=0);
-	background-color:#bc3315;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0.05, #bc3315),
+    color-stop(1, #d0451b)
+  );
+  background: -moz-linear-gradient(top, #bc3315 5%, #d0451b 100%);
+  background: -webkit-linear-gradient(top, #bc3315 5%, #d0451b 100%);
+  background: -o-linear-gradient(top, #bc3315 5%, #d0451b 100%);
+  background: -ms-linear-gradient(top, #bc3315 5%, #d0451b 100%);
+  background: linear-gradient(to bottom, #bc3315 5%, #d0451b 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#bc3315', endColorstr='#d0451b',GradientType=0);
+  background-color: #bc3315;
 }
 .deleteButton:active {
-	position:relative;
-	top:1px;
+  position: relative;
+  top: 1px;
 }
 .editButton {
-	-moz-box-shadow:inset 0px 1px 0px 0px #9acc85;
-	-webkit-box-shadow:inset 0px 1px 0px 0px #9acc85;
-	box-shadow:inset 0px 1px 0px 0px #9acc85;
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #74ad5a), color-stop(1, #68a54b));
-	background:-moz-linear-gradient(top, #74ad5a 5%, #68a54b 100%);
-	background:-webkit-linear-gradient(top, #74ad5a 5%, #68a54b 100%);
-	background:-o-linear-gradient(top, #74ad5a 5%, #68a54b 100%);
-	background:-ms-linear-gradient(top, #74ad5a 5%, #68a54b 100%);
-	background:linear-gradient(to bottom, #74ad5a 5%, #68a54b 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#74ad5a', endColorstr='#68a54b',GradientType=0);
-	background-color:#74ad5a;
-	border:1px solid #3b6e22;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:13px;
-	font-weight:bold;
-	padding:6px 12px;
-	text-decoration:none;
-	width: 80px;
-	
+  -moz-box-shadow: inset 0px 1px 0px 0px #9acc85;
+  -webkit-box-shadow: inset 0px 1px 0px 0px #9acc85;
+  box-shadow: inset 0px 1px 0px 0px #9acc85;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0.05, #74ad5a),
+    color-stop(1, #68a54b)
+  );
+  background: -moz-linear-gradient(top, #74ad5a 5%, #68a54b 100%);
+  background: -webkit-linear-gradient(top, #74ad5a 5%, #68a54b 100%);
+  background: -o-linear-gradient(top, #74ad5a 5%, #68a54b 100%);
+  background: -ms-linear-gradient(top, #74ad5a 5%, #68a54b 100%);
+  background: linear-gradient(to bottom, #74ad5a 5%, #68a54b 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#74ad5a', endColorstr='#68a54b',GradientType=0);
+  background-color: #74ad5a;
+  border: 1px solid #3b6e22;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 13px;
+  padding: 6px 24px;
+  /* font-weight:bold; */
+  /* padding:6px 12px; */
+  text-decoration: none;
+  width: 80px;
+  height: 40px;
+  border-radius: 3px;
 }
 .editButton:hover {
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #68a54b), color-stop(1, #74ad5a));
-	background:-moz-linear-gradient(top, #68a54b 5%, #74ad5a 100%);
-	background:-webkit-linear-gradient(top, #68a54b 5%, #74ad5a 100%);
-	background:-o-linear-gradient(top, #68a54b 5%, #74ad5a 100%);
-	background:-ms-linear-gradient(top, #68a54b 5%, #74ad5a 100%);
-	background:linear-gradient(to bottom, #68a54b 5%, #74ad5a 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#68a54b', endColorstr='#74ad5a',GradientType=0);
-	background-color:#68a54b;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0.05, #68a54b),
+    color-stop(1, #74ad5a)
+  );
+  background: -moz-linear-gradient(top, #68a54b 5%, #74ad5a 100%);
+  background: -webkit-linear-gradient(top, #68a54b 5%, #74ad5a 100%);
+  background: -o-linear-gradient(top, #68a54b 5%, #74ad5a 100%);
+  background: -ms-linear-gradient(top, #68a54b 5%, #74ad5a 100%);
+  background: linear-gradient(to bottom, #68a54b 5%, #74ad5a 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#68a54b', endColorstr='#74ad5a',GradientType=0);
+  background-color: #68a54b;
 }
 .editButton:active {
-	position:relative;
-	top:1px;
+  position: relative;
+  top: 1px;
 }
 
 .recipe-input {
@@ -347,20 +345,17 @@ footer {
   flex-direction: column;
   align-items: center;
   height: 69vh;
-
 }
 
 .recipes {
   background: red;
 }
 
-
 input {
+  margin: 10px auto;
 
-	margin:10px auto;
-	
-	padding: 20px 12px 10px 20px;
-	font: 13px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  padding: 20px 12px 10px 20px;
+  font: 13px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
 /* .hidden-input {
@@ -373,24 +368,20 @@ input {
 	  
 } */
 .long-input {
-	width: 40vw;
+  width: 40vw;
 }
 
 .edit-input {
-	display: flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  
-  
 }
 .edit-container {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background: transparent;
-	border: 0;
-	border-bottom: solid 2px #2c3e50;
-	
-	
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 0;
+  border-bottom: solid 2px #2c3e50;
 }

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-const apiUrl = '/api/recipes'
+const apiUrl = "/api/recipes";
 
 class Add extends Component {
   constructor(props) {
@@ -11,7 +11,7 @@ class Add extends Component {
       title: "",
       ingredients: "",
       instructions: "",
-      img:""
+      img: ""
     };
     this.handleChange = this.handleChange.bind(this);
     this.baseState = this.state;
@@ -39,7 +39,7 @@ class Add extends Component {
             })
             .then(response => {
               console.log(response.data);
-              
+
               this.props.changeView("recipes");
             })
             .catch(error => {
@@ -47,18 +47,26 @@ class Add extends Component {
             });
         }}
       >
-          <div className="recipe-input">
-        <input name="title" onChange={this.handleChange} placeholder="Title" />
-        <input name="img" onChange={this.handleChange} placeholder="Image" />
-        <input name="ingredients" onChange={this.handleChange} placeholder="Ingredients" />
-        <input name="instructions" onChange={this.handleChange} placeholder="Instructions" />
-        <button className="editButton" >Submit</button>
-       
+        <div className="recipe-input">
+          <input
+            name="title"
+            onChange={this.handleChange}
+            placeholder="Title"
+          />
+          <input name="img" onChange={this.handleChange} placeholder="Image" />
+          <input
+            name="ingredients"
+            onChange={this.handleChange}
+            placeholder="Ingredients"
+          />
+          <input
+            name="instructions"
+            onChange={this.handleChange}
+            placeholder="Instructions"
+          />
+          <button className="editButton">Submit</button>
         </div>
-        
-        
       </form>
-     
     );
   }
 }
