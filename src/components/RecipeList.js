@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import axios from "axios";
 import { FaLongArrowAltLeft } from "react-icons/fa";
 import { FaLongArrowAltRight } from "react-icons/fa";
-import Edit from './Edit'
+// import Edit from "./Edit";
+import UpdateRecipe from "./UpdateRecipe";
 const apiUrl = "/api/recipes";
-
 
 class RecipeList extends Component {
   constructor(props) {
@@ -16,13 +16,13 @@ class RecipeList extends Component {
   }
 
   render() {
-    const recipeDirectory = this.props.recipes.map(entry => {
-      return (
-          <div className="entry-container" key={entry.id}>
-              {<Edit updateFn={this.props.updateFn} entry={entry}/>}
-          </div>
-      )
-  })
+    // const recipeEdit = this.props.recipes.map(entry => {
+    //   return (
+    //     <div className="entry-container" key={entry.id}>
+    //       {<Edit updateFn={this.props.updateFn} entry={entry} />}
+    //     </div>
+    //   );
+    // });
 
     return (
       <div className="container">
@@ -78,9 +78,14 @@ class RecipeList extends Component {
                     </button>
                     {this.state.editable === true ? (
                       <div className="hidden-input">
-                      
                         <br />
-                       {recipeDirectory}
+                        <UpdateRecipe
+                          recipes={this.props.recipes}
+                          key={this.props.index}
+                          recipe={this.props.recipe}
+                          updateRecipe={this.props.updateRecipe}
+                          updateFn={this.props.handleUpdate}
+                        />
                       </div>
                     ) : null}
                   </div>
@@ -91,7 +96,6 @@ class RecipeList extends Component {
         </div>
       </div>
     );
-    
   }
 }
 

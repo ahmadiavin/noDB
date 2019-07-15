@@ -12,6 +12,8 @@ header {
   align-items: center;
   color:  #e74c3c;
   background: #2c3e50;
+  width: 100vw;
+  
 }
 img {
    
@@ -101,6 +103,7 @@ button:focus {
 
 .recipe__text {
   margin-left: 15px;
+  /* border: 2px solid red; */
 }
 
 .recipe__title {
@@ -162,6 +165,8 @@ input:-webkit-autofill {
 .hidden {
   margin: 0 auto;
   width: 60%;
+  border: 1px solid  #e74c3c;
+  background: #fafbfc;
 }
 
 .active-recipe__img {
@@ -213,6 +218,7 @@ footer {
   align-items: center;
   font-size: 4rem;
   background: #2c3e50;
+  width: 100vw;
   
   
  
@@ -357,7 +363,7 @@ input {
 	font: 13px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
-.hidden-input {
+/* .hidden-input {
 	
 		background: transparent;
 		border: 0;
@@ -365,11 +371,19 @@ input {
 		
 		
 	  
-}
+} */
 .long-input {
 	width: 40vw;
 }
 
+.edit-input {
+	display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+  
+}
 .edit-container {
 	display: flex;
 	align-items: center;

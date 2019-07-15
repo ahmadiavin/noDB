@@ -5,7 +5,7 @@ export default function Footer() {
   
     return (
         <header   className="header">
-        <h2 class="ui header">Recipe List</h2>
+        <h2 >Recipe List</h2>
         </header>
     );
   

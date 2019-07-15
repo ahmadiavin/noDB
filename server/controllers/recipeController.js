@@ -44,6 +44,12 @@ const addRecipe = (req, res) => {
       res.json(recipeArray);
   }
 
+  const updateRecipe = (req, res) => {
+    const { id } = req.params;
+    const selectedElement = recipeArray.find(recipe => recipe.id === id);
+    selectedElement.id = req.body.id;
+    res.json(recipeArray);
+  };
 module.exports = {
     getRecipes: (req, res) => {
         res.status(200).send(recipeArray)
@@ -68,7 +74,8 @@ module.exports = {
         res.status(200).send(recipeArray)
     },
     addRecipe,
-    deleteRecipe
+    deleteRecipe,
+    updateRecipe
    
 
 }
