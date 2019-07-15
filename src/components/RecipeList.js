@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
-import {FaLongArrowAltLeft} from 'react-icons/fa';
-import {FaLongArrowAltRight} from 'react-icons/fa';
+import { FaLongArrowAltLeft } from "react-icons/fa";
+import { FaLongArrowAltRight } from "react-icons/fa";
+import Edit from './Edit'
 const apiUrl = "/api/recipes";
+
 
 class RecipeList extends Component {
   constructor(props) {
@@ -10,11 +12,18 @@ class RecipeList extends Component {
     this.state = {
       isExpanded: false,
       editable: false
-
     };
   }
 
   render() {
+    const recipeDirectory = this.props.recipes.map(entry => {
+      return (
+          <div className="entry-container" key={entry.id}>
+              {<Edit updateFn={this.props.updateFn} entry={entry}/>}
+          </div>
+      )
+  })
+
     return (
       <div className="container">
         <div className="row">
@@ -58,7 +67,7 @@ class RecipeList extends Component {
                     >
                       Delete
                     </button>
-                    <FaLongArrowAltLeft/> || <FaLongArrowAltRight/>
+                    <FaLongArrowAltLeft /> || <FaLongArrowAltRight />
                     <button
                       className="editButton"
                       onClick={() =>
@@ -69,32 +78,9 @@ class RecipeList extends Component {
                     </button>
                     {this.state.editable === true ? (
                       <div className="hidden-input">
-                        <input
-                        className="edit-input"
-                          name="title"
-                          onChange={this.handleChange}
-                          placeholder="Title"
-                        />
-                        <input
-                        className="edit-input"
-                          name="img"
-                          onChange={this.handleChange}
-                          placeholder="Image"
-                        />
-                        <input
-                        className="long-input"
-                          name="ingredients"
-                          onChange={this.handleChange}
-                          placeholder="Ingredients"
-                        />
-                        <input
-                        className="long-input"
-                          name="instructions"
-                          onChange={this.handleChange}
-                          placeholder="Instructions"
-                        />
-                        <br></br>
-                        <button className="editButton">Submit Edit</button>
+                      
+                        <br />
+                       {recipeDirectory}
                       </div>
                     ) : null}
                   </div>
@@ -105,6 +91,7 @@ class RecipeList extends Component {
         </div>
       </div>
     );
+    
   }
 }
 

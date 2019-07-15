@@ -369,3 +369,14 @@ input {
 .long-input {
 	width: 40vw;
 }
+
+.edit-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: transparent;
+	border: 0;
+	border-bottom: solid 2px #2c3e50;
+	
+	
+}

@@ -38,16 +38,15 @@ class GetRecipes extends Component {
     this.setState({recipes: newRecipe});
   }
 
-  handleUpdateRecipe({
-    id= this.recipes.id,
-    title = this.recipes.title,
-    ingredients = this.recipes.ingredients,
-    instructions = this.recipes.instructions,
-    img = this.recipes.img
-  }) {
+  handleUpdate = (update) => {
+    const id = update.id
+    axios.put(`${apiUrl}/${id}`, update).then(res => {
+      this.setState({
+        recipes: res.data
+      })
+    })
+  }
 
-this.update(id, title, ingredients, instructions, img);
-}
 
 
   render() {
@@ -60,7 +59,7 @@ this.update(id, title, ingredients, instructions, img);
         <section>
 
           {recipes.map((recipe, index) => (
-          <RecipeList editable = {this.state.editable} key={index} recipe={recipe} updateRecipe={this.updateRecipe} updateFn={this.handleUpdate} />
+          <RecipeList recipes={this.state.recipes} editable = {this.state.editable} key={index} recipe={recipe} updateRecipe={this.updateRecipe} updateFn={this.handleUpdate} />
         ))}
         </section>
 
