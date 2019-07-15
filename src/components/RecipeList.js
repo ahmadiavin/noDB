@@ -83,10 +83,11 @@ class RecipeList extends Component {
                         <br />
                         <UpdateRecipe
                           recipes={this.props.recipes}
-                          key={this.props.index}
+                          key={this.props.id}
                           recipe={this.props.recipe}
                           updateRecipe={this.props.updateRecipe}
                           updateFn={this.props.handleUpdate}
+                          id={this.props.recipe.id}
                         />
                       </div>
                     ) : null}

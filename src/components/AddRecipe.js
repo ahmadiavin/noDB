@@ -7,7 +7,7 @@ class Add extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: [],
+      id: 3,
       title: "",
       ingredients: "",
       instructions: "",
@@ -35,12 +35,16 @@ class Add extends Component {
               title: this.state.title,
               ingredients: this.state.ingredients,
               instructions: this.state.instructions,
-              img: this.state.img
+              img: this.state.img,
+              id: (this.state.id + 1).toString()
             })
             .then(response => {
               console.log(response.data);
 
               this.props.changeView("recipes");
+              this.setState({
+                id: this.state.id + 1
+              });
             })
             .catch(error => {
               console.log(error);

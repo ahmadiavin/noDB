@@ -14,7 +14,7 @@ const apiUrl = '/api/recipes'
 app.get(apiUrl, recipeController.getRecipes);
 app.post(apiUrl, recipeController.addRecipe)
 app.delete(`${apiUrl}/:id`, recipeController.deleteRecipe)
-app.put(`${apiUrl}/:id`, recipeController.editRecipe)
+app.put(`${apiUrl}/:id`, recipeController.updateRecipe)
 
 
 app.listen(SERVER_PORT, () => {

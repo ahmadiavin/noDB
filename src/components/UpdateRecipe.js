@@ -18,7 +18,7 @@ export default class UpdateRecipe extends Component {
   handleClick = () => {
     const { ingredients, instructions } = this.state;
     axios
-      .put("/api/recipes/" + this.props.recipe.id, {
+      .put("/api/recipes/" + this.props.id, {
         ingredients,
         instructions
       })

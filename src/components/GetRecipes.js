@@ -9,7 +9,6 @@ class GetRecipes extends Component {
     super(props);
     this.state = {
       recipes: [],
-      counter: 4,
       error: ""
     };
     this.getRecipes = this.getRecipes.bind(this);
